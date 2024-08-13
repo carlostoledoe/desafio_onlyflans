@@ -1,0 +1,50 @@
+1. Creamos un ambiente virtual en la carpta raiz, donde vamos a crea el proyecto:
+
+
+	a) Crear ambiente virtual
+		python3 -m venv onlyflans_env
+
+	b) Activarlo:
+		 source onlflans_env/Scripts/activate
+
+	c) Instalar Django:
+		pip install django
+
+
+2) Crear un proyecto nuevo y entrar en la carpeta del proyecto:
+
+	
+	django-admin startproject onlyflans
+
+	cd nameproject
+
+	code .      (opcional, para abrir VSC en una pantalla nueva)
+
+
+
+
+3) Estando dentro de la carpeta del protecto, realizamos la migraciones:
+
+
+	a) Busca cambios:	
+	python3 manage.py makemigrations
+	
+
+	b) Aplica los cambios:
+	python3 manage.py migrate
+
+
+
+4) Ejecutar el servidor:
+
+
+	python3 manage.py runserver
+
+
+
+
+
+
+
+
+
