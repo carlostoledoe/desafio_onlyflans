@@ -14,3 +14,13 @@ class Flan(models.Model):
         name = self.name
         es_privado = self.is_private
         return f'{name} - ¿Es privado?: {es_privado}'
+
+class Contact(models.Model):
+    nombre = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    mensaje = models.CharField(max_length=500)
+    
+    def __str__(self):
+        name = self.nombre
+        message = self.mensaje
+        return f'{name} : {message}'
