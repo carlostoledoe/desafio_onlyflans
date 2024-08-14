@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Este es el welcome</h1>
+<h1>Flanes Privados</h1>
+<div class="row">
+    {% for flan in flanes %}
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ flan.image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ flan.name }}</h5>
+                <p class="card-text">{{ flan.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
