@@ -1,40 +1,45 @@
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'index' %}">Onlyflans</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+    <div class="container d-flex flex-wrap">
+        <a class="navbar-brand" href="{% url 'index' %}">OnlyFlans</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
-                </li>
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'welcome' %}">Bienvenido</a>
-                    </li>
-                {% endif %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">Acerca</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">Acerca</a>
+                </li>
                 {% if user.is_authenticated %}
-                    <li>
-                        <span class="nav-link text-warning ms-5">Bienvenido, {{ user.get_username }}</spam>
-                    </li>
-
-                    <form id="logout-form" action="{% url 'logout' %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger ms-2 btn-sm">Cerrar Sesión</button>
-                    </form>
-
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{% url 'welcome' %}">Bienvenido</a>
+                </li>
                 {% endif %}
-
-                {% if not user.is_authenticated %}
-                    <a href="{% url 'login' %}" class="btn btn-success btn-sm">Ingresar</a>
+            </ul>
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="mt-1">
+                    <span class="text-primary fs-5 me-3">Bienvenido, {{user.get_username}}</span>
+                </li>
+                <li class="nav-item">
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-danger" type="submit">Cerrar Sesión</button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary btn-sm">Ingresa</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="btn btn-outline-success btn-sm ms-2">Regístrate</a>
+                </li>
                 {% endif %}
             </ul>
         </div>
