@@ -2,3 +2,12 @@
     width: 15rem;
     margin: 1rem 0;
 }
+
+
+.card {
+    transition: transform 0.4s ease;
+}
+
+.card:hover {
+    transform: scale(1.15);
+}

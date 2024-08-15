@@ -5,11 +5,27 @@
 <div class="row">
     {% for flan in flanes %}
     <div class="col">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem;" data-bs-toggle="modal" data-bs-target="#flanModal{{flan.id}}">
             <img src="{{ flan.image_url }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{ flan.name }}</h5>
                 <p class="card-text">{{ flan.description }}</p>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="flanModal{{flan.id}}" data-bs-keyboard="true" tabindex="-1"
+            aria-labelledby="flanModalLabel{{flan.id}}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="flanModalLabel{{flan.id}}">{{ flan.name }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ flan.image_url }}" class="img-fluid" alt="...">
+                        <p class="mt-4 fs-5">{{ flan.description }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
