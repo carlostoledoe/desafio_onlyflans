@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from web.models import Flan, Contact
 from web.forms import ContactForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -14,6 +15,7 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
+@login_required
 def welcome(request):
     flanes_privados = Flan.objects.filter(is_private=True)
     context = {
