@@ -10,15 +10,28 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'welcome' %}">Bienvenido</a>
-                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'welcome' %}">Bienvenido</a>
+                    </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">Acerca</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
                 </li>
+                {% if user.is_authenticated %}
+                    <li>
+                        <span class="nav-link text-warning ms-5">Bienvenido, {{ user.get_username }}</spam>
+                    </li>
+
+                    <form id="logout-form" action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger ms-2 btn-sm">Cerrar Sesión</button>
+                    </form>
+
+                {% endif %}
             </ul>
         </div>
     </div>
