@@ -25,7 +25,7 @@
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                 <li class="mt-1">
-                    <span class="text-primary fs-5 me-3">Bienvenido, {{user.get_username}}</span>
+                    <span class="text-primary fs-5 me-3">Bienvenido, {{user.first_name}}</span>
                 </li>
                 <li class="nav-item">
                     <form action="{% url 'logout' %}" method="post">
@@ -38,7 +38,7 @@
                     <a href="{% url 'login' %}" class="btn btn-outline-primary btn-sm">Ingresa</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="btn btn-outline-success btn-sm ms-2">Regístrate</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-success btn-sm ms-2">Regístrate</a>
                 </li>
                 {% endif %}
             </ul>
